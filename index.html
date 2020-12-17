@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Particle Generators</title>
+   <script src="script.js" defer></script>
+   <style>
+      #export {
+         position: absolute;
+         bottom: 0px;
+         right: 5px;
+      }
+   </style>
+</head>
+<body>
+   <button id="export">Export as PNG</button>
+   <canvas id="canvas"></canvas>
+   <span id="canvas-link"></span>
+   <script>
+      function canvasExport() {
+         let dataURL = document.getElementById("canvas").toDataURL("png");
+         let w = window.open('about:blank');
+         w.document.write('<img src="' + dataURL + '" />');
+      }
+      document.getElementById("export").addEventListener("click", canvasExport);
+   </script>
+</body>
+</html>
